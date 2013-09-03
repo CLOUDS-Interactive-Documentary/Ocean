@@ -52,19 +52,34 @@ void CloudsVisualSystemOcean::selfSetupGuis(){
 	oceanGui->addSlider("WAVE SPEED", 1, 10, &ocean.waveSpeed);
 	oceanGui->addSlider("WAVE SCALE", 0, 100.0, &ocean.waveScale);
 	oceanGui->addSlider("WAVE CHOPPINESS", 0, 20, &ocean.choppyScale);
-		
+
+	oceanGui->addToggle("USE BUOYANT CAM", &useOceanCam);
+	oceanGui->addSlider("BASE WIDTH", 2, 50, &oceanCamera.baseWidth);
+	oceanGui->addSlider("LIFT HEIGHT", 0, 100, &oceanCamera.lift);
+	
+	oceanGui->addLabel("RENDERING");
+	oceanGui->addToggle("DRAW POINTS", &drawPoints);
+	oceanGui->addSlider("POINT ALPHA", 0, 1.0, &pointAlpha);
+	
+	oceanGui->addToggle("DRAW WIREFRAME", &drawWireframe);
+	oceanGui->addSlider("WIREFRAME ALPHA", 0, 1.0, &pointAlpha);
+	
 	ofAddListener(oceanGui->newGUIEvent, this, &CloudsVisualSystemOcean::selfGuiEvent);
 	
     guis.push_back(oceanGui);
     guimap[oceanGui->getName()] = oceanGui;
+	
+	oceanCamera.ocean = &ocean;
 }
 
 void CloudsVisualSystemOcean::selfUpdate(){
 
-	ocean.setFrameNum(ofGetFrameNum());
+	ocean.setFrameNum( ofGetFrameNum() );
+	
     ocean.update();
 	renderer.update();
 	
+	oceanCamera.update();
 }
 
 void CloudsVisualSystemOcean::selfDrawBackground(){
@@ -80,10 +95,23 @@ void CloudsVisualSystemOcean::selfSceneTransformation(){
 }
 
 void CloudsVisualSystemOcean::selfDraw(){
+	mat->begin();
+	if(!useOceanCam){
+		oceanCamera.drawDebug();
+	}
 
-
+	
+	glPointSize(4);
+	
+	renderer.drawVertices();
+	
 	renderer.drawWireframe();
+	
+	ofEnableAlphaBlending();
+	ofSetColor(255, 128);
 	renderer.draw();
+	
+	mat->end();
 }
 
 void CloudsVisualSystemOcean::selfExit(){

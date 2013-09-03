@@ -5,6 +5,7 @@
 #include "CloudsVisualSystem.h"
 #include "ofxOcean.h"
 #include "ofxOceanRenderer.h"
+#include "ofxOceanCamera.h"
 
 class CloudsVisualSystemOcean : public CloudsVisualSystem {
   public:
@@ -41,11 +42,23 @@ class CloudsVisualSystemOcean : public CloudsVisualSystem {
 	void selfSetupRenderGui();
 	void guiRenderEvent(ofxUIEventArgs &e);
 	
+	ofCamera& getCameraRef(){
+		return useOceanCam ? oceanCamera : CloudsVisualSystem::getCameraRef();
+	}
+	
   protected:
 	
 	ofxOcean ocean;
 	ofxOceanRenderer renderer;
-
+	ofxOceanCamera oceanCamera;
+	
+	bool useOceanCam;
+	
+	bool drawPoints;
+	float pointAlpha;
+	bool drawWireframe;
+	float wireframeAlpha;
+	
 	bool shouldRegenerateOcean;
 	void generateOcean();
 	
@@ -55,7 +68,6 @@ class CloudsVisualSystemOcean : public CloudsVisualSystem {
 	float windSpeed;
     float oceanTileSizeX;
     float oceanTileSizeY;
-
 	
 	
 	float waveScale;
