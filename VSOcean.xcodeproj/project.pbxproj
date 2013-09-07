@@ -104,6 +104,8 @@
 		E7424FF8179F450100B2F0A3 /* ofxOceanRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7424FEF179F450100B2F0A3 /* ofxOceanRenderer.cpp */; };
 		E7424FFA179F450100B2F0A3 /* ofxOceanTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7424FF3179F450100B2F0A3 /* ofxOceanTile.cpp */; };
 		E761F4D81622CA3D00029E43 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E761F4D71622CA3D00029E43 /* Accelerate.framework */; };
+		E79A40F417DAB3E100604F98 /* ocean.frag in Sources */ = {isa = PBXBuildFile; fileRef = E79A40F217DAB3E100604F98 /* ocean.frag */; };
+		E79A40F517DAB3E100604F98 /* ocean.vert in Sources */ = {isa = PBXBuildFile; fileRef = E79A40F317DAB3E100604F98 /* ocean.vert */; };
 		E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */; };
 		E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E715D3B6510020DFD4 /* QTKit.framework */; };
 /* End PBXBuildFile section */
@@ -409,6 +411,8 @@
 		E7424FF3179F450100B2F0A3 /* ofxOceanTile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxOceanTile.cpp; sourceTree = "<group>"; };
 		E7424FF4179F450100B2F0A3 /* ofxOceanTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOceanTile.h; sourceTree = "<group>"; };
 		E761F4D71622CA3D00029E43 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
+		E79A40F217DAB3E100604F98 /* ocean.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ocean.frag; sourceTree = "<group>"; };
+		E79A40F317DAB3E100604F98 /* ocean.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ocean.vert; sourceTree = "<group>"; };
 		E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -1044,6 +1048,7 @@
 			children = (
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
+				E79A40F117DAB3E100604F98 /* shaders */,
 				E7424FDE179F44E100B2F0A3 /* vs_src */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				3DA460BE179ED608002EC0AC /* VisualSystemsLibrary */,
@@ -1124,12 +1129,22 @@
 				E7424FEB179F450100B2F0A3 /* ofxOcean.cpp */,
 				E7424FF0179F450100B2F0A3 /* ofxOceanRenderer.h */,
 				E7424FEF179F450100B2F0A3 /* ofxOceanRenderer.cpp */,
-				E7424FF3179F450100B2F0A3 /* ofxOceanTile.cpp */,
 				E7424FF4179F450100B2F0A3 /* ofxOceanTile.h */,
+				E7424FF3179F450100B2F0A3 /* ofxOceanTile.cpp */,
 				E7250E9F17A4885B00C39241 /* ofxOceanCamera.h */,
 				E7250E9E17A4885B00C39241 /* ofxOceanCamera.cpp */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		E79A40F117DAB3E100604F98 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				E79A40F217DAB3E100604F98 /* ocean.frag */,
+				E79A40F317DAB3E100604F98 /* ocean.vert */,
+			);
+			name = shaders;
+			path = bin/data/shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1296,6 +1311,8 @@
 				E7250E9917A4824200C39241 /* CloudsRGBDVideoPlayer.cpp in Sources */,
 				E7250E9D17A4825300C39241 /* CloudsRGBDCamera.cpp in Sources */,
 				E7250EA017A4885B00C39241 /* ofxOceanCamera.cpp in Sources */,
+				E79A40F417DAB3E100604F98 /* ocean.frag in Sources */,
+				E79A40F517DAB3E100604F98 /* ocean.vert in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

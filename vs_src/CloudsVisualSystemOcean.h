@@ -51,13 +51,21 @@ class CloudsVisualSystemOcean : public CloudsVisualSystem {
 	ofxOcean ocean;
 	ofxOceanRenderer renderer;
 	ofxOceanCamera oceanCamera;
+	ofShader oceanShader;
 	
+	ofBlendMode blendMode;
+	
+	void reloadShader();
 	bool useOceanCam;
 	
 	bool drawPoints;
 	float pointAlpha;
 	bool drawWireframe;
 	float wireframeAlpha;
+	bool drawOcean;
+	float oceanAlpha;
+	
+	float pointSize;
 	
 	bool shouldRegenerateOcean;
 	void generateOcean();
@@ -69,7 +77,10 @@ class CloudsVisualSystemOcean : public CloudsVisualSystem {
     float oceanTileSizeX;
     float oceanTileSizeY;
 	
-	
+	float fogMinDepth;
+	float fogMaxDepth;
+	float fogDensity;
+
 	float waveScale;
 	float choppyScale;
 	float waveSpeed;

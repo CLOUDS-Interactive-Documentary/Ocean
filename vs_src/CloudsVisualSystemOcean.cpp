@@ -12,7 +12,7 @@ CloudsVisualSystemOcean::CloudsVisualSystemOcean(){
 	windSpeed = 32;
     oceanTileSizeX = 200;
     oceanTileSizeY = 200;
-	
+	drawOcean = true;
 }
 
 string CloudsVisualSystemOcean::getSystemName(){
@@ -29,9 +29,7 @@ void CloudsVisualSystemOcean::generateOcean(){
     ocean.windSpeed = windSpeed;
     ocean.setup();
 	
-	renderer.shaderLocation = "";
 	renderer.setup(&ocean, 9, 9);
-
 }
 
 void CloudsVisualSystemOcean::selfSetupGuis(){
@@ -49,7 +47,7 @@ void CloudsVisualSystemOcean::selfSetupGuis(){
 	
 	oceanGui->addButton("REGENERATE", &shouldRegenerateOcean);
 	
-	oceanGui->addSlider("WAVE SPEED", 1, 10, &ocean.waveSpeed);
+	oceanGui->addSlider("WAVE SPEED", 0, 10, &ocean.waveSpeed);
 	oceanGui->addSlider("WAVE SCALE", 0, 100.0, &ocean.waveScale);
 	oceanGui->addSlider("WAVE CHOPPINESS", 0, 20, &ocean.choppyScale);
 
@@ -60,16 +58,28 @@ void CloudsVisualSystemOcean::selfSetupGuis(){
 	oceanGui->addLabel("RENDERING");
 	oceanGui->addToggle("DRAW POINTS", &drawPoints);
 	oceanGui->addSlider("POINT ALPHA", 0, 1.0, &pointAlpha);
+	oceanGui->addSlider("POINT SIZE", .5, 4, &pointSize);
 	
 	oceanGui->addToggle("DRAW WIREFRAME", &drawWireframe);
-	oceanGui->addSlider("WIREFRAME ALPHA", 0, 1.0, &pointAlpha);
+	oceanGui->addSlider("WIREFRAME ALPHA", 0, 1.0, &wireframeAlpha);
 	
+	oceanGui->addToggle("DRAW OCEAN", &drawOcean);
+	oceanGui->addSlider("OCEAN ALPHA", 0, 1.0, &oceanAlpha);
+
+	oceanGui->addRangeSlider("FOG RANGE", 0, 5000, &fogMinDepth, &fogMaxDepth);
+	oceanGui->addSlider("FOG DENSITY", 0, .3, &fogDensity);
+
 	ofAddListener(oceanGui->newGUIEvent, this, &CloudsVisualSystemOcean::selfGuiEvent);
 	
     guis.push_back(oceanGui);
     guimap[oceanGui->getName()] = oceanGui;
 	
 	oceanCamera.ocean = &ocean;
+	
+	blendMode = OF_BLENDMODE_ALPHA;
+	
+	reloadShader();
+
 }
 
 void CloudsVisualSystemOcean::selfUpdate(){
@@ -96,20 +106,42 @@ void CloudsVisualSystemOcean::selfSceneTransformation(){
 
 void CloudsVisualSystemOcean::selfDraw(){
 	mat->begin();
+	
 	if(!useOceanCam){
 		oceanCamera.drawDebug();
 	}
 
+	glPushAttrib(GL_POINT_BIT | GL_POLYGON_BIT | GL_FOG_BIT);
+	glEnable(GL_POINT_SMOOTH);
+	glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
+	glPointSize(pointSize);
+
+	glEnable(GL_FOG);
+	glFogi(GL_FOG_COORD_SRC, GL_FOG_COORDINATE);
+	glFogf(GL_FOG_START, fogMinDepth);
+	glFogf(GL_FOG_END, fogMaxDepth);
+	glFogf(GL_FOG_DENSITY, powf(fogDensity,2));
+
 	
-	glPointSize(4);
+	oceanShader.begin();
 	
-	renderer.drawVertices();
+	ofEnableBlendMode(OF_BLENDMODE_ADD);
+	ofSetColor(255, pointAlpha*255);
+	if(drawPoints) renderer.drawVertices();
 	
-	renderer.drawWireframe();
+	ofSetColor(255, wireframeAlpha*255);
+	if(drawWireframe) renderer.drawWireframe();
+
+	glPolygonOffset(-1, 0);
+	ofEnableBlendMode(OF_BLENDMODE_ALPHA);
+	ofSetColor(255, oceanAlpha*255);
+	if(drawOcean) renderer.draw();
+	
+	oceanShader.end();
+	
+	glPopAttrib();
 	
 	ofEnableAlphaBlending();
-	ofSetColor(255, 128);
-	renderer.draw();
 	
 	mat->end();
 }
@@ -127,7 +159,9 @@ void CloudsVisualSystemOcean::selfEnd(){
 }
 
 void CloudsVisualSystemOcean::selfKeyPressed(ofKeyEventArgs & args){
-	
+	if(args.key == 'r'){
+		reloadShader();
+	}
 }
 
 void CloudsVisualSystemOcean::selfKeyReleased(ofKeyEventArgs & args){
@@ -169,8 +203,24 @@ void CloudsVisualSystemOcean::guiSystemEvent(ofxUIEventArgs &e){
 	
 }
 
-void CloudsVisualSystemOcean::selfSetupRenderGui(){
+void CloudsVisualSystemOcean::reloadShader(){
 	
+	oceanShader.load(getVisualSystemDataPath() + "shaders/ocean");
+}
+
+void CloudsVisualSystemOcean::selfSetupRenderGui(){
+	vector<string> modes;
+	modes.push_back("alpha");
+	modes.push_back("add");
+	modes.push_back("screen");
+	
+	//modes.push_back("sub");
+	//modes.push_back("mult");
+//	modes.push_back("disable");
+	
+	//rdrGui->addRadio("blending", modes);
+
+
 }
 
 void CloudsVisualSystemOcean::guiRenderEvent(ofxUIEventArgs &e){
