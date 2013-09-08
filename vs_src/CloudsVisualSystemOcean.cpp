@@ -105,7 +105,7 @@ void CloudsVisualSystemOcean::selfSceneTransformation(){
 }
 
 void CloudsVisualSystemOcean::selfDraw(){
-	mat->begin();
+//	mat->begin();
 	
 	if(!useOceanCam){
 		oceanCamera.drawDebug();
@@ -143,7 +143,7 @@ void CloudsVisualSystemOcean::selfDraw(){
 	
 	ofEnableAlphaBlending();
 	
-	mat->end();
+//	mat->end();
 }
 
 void CloudsVisualSystemOcean::selfExit(){
