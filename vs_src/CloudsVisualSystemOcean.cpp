@@ -105,7 +105,6 @@ void CloudsVisualSystemOcean::selfSceneTransformation(){
 }
 
 void CloudsVisualSystemOcean::selfDraw(){
-//	mat->begin();
 	
 	if(!useOceanCam){
 		oceanCamera.drawDebug();
@@ -115,15 +114,18 @@ void CloudsVisualSystemOcean::selfDraw(){
 	glEnable(GL_POINT_SMOOTH);
 	glHint(GL_POINT_SMOOTH_HINT, GL_NICEST);
 	glPointSize(pointSize);
+	
+//	glPushAttrib(GL_ALL_ATTRIB_BITS);
+//	mat->begin();
 
 	glEnable(GL_FOG);
 	glFogi(GL_FOG_COORD_SRC, GL_FOG_COORDINATE);
-	glFogf(GL_FOG_START, fogMinDepth);
-	glFogf(GL_FOG_END, fogMaxDepth);
+//	glFogf(GL_FOG_START, fogMinDepth);
+//	glFogf(GL_FOG_END, fogMaxDepth);
 	glFogf(GL_FOG_DENSITY, powf(fogDensity,2));
 
 	
-	oceanShader.begin();
+//	oceanShader.begin();
 	
 	ofEnableBlendMode(OF_BLENDMODE_ADD);
 	ofSetColor(255, pointAlpha*255);
@@ -137,7 +139,7 @@ void CloudsVisualSystemOcean::selfDraw(){
 	ofSetColor(255, oceanAlpha*255);
 	if(drawOcean) renderer.draw();
 	
-	oceanShader.end();
+//	oceanShader.end();
 	
 	glPopAttrib();
 	
