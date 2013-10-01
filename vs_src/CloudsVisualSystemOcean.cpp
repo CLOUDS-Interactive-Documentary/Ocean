@@ -66,7 +66,7 @@ void CloudsVisualSystemOcean::selfSetupGuis(){
 	oceanGui->addToggle("DRAW OCEAN", &drawOcean);
 	oceanGui->addSlider("OCEAN ALPHA", 0, 1.0, &oceanAlpha);
 
-	oceanGui->addRangeSlider("FOG RANGE", 0, 5000, &fogMinDepth, &fogMaxDepth);
+//	oceanGui->addRangeSlider("FOG RANGE", 0, 5000, &fogMinDepth, &fogMaxDepth);
 	oceanGui->addSlider("FOG DENSITY", 0, .3, &fogDensity);
 
 	ofAddListener(oceanGui->newGUIEvent, this, &CloudsVisualSystemOcean::selfGuiEvent);
@@ -125,8 +125,35 @@ void CloudsVisualSystemOcean::selfDraw(){
 	glFogf(GL_FOG_DENSITY, powf(fogDensity,2));
 
 	
-//	oceanShader.begin();
+	oceanShader.begin();
+	oceanShader.setUniform3f("uAmbient",
+							 mat->getAmbientColor().r,
+							 mat->getAmbientColor().g,
+							 mat->getAmbientColor().b);
+							 
+	oceanShader.setUniform3f("uDiffuse",
+							 mat->getDiffuseColor().r,
+							 mat->getDiffuseColor().g,
+							 mat->getDiffuseColor().b);
+	oceanShader.setUniform3f("uSpecular",
+							 mat->getSpecularColor().r,
+							 mat->getSpecularColor().g,
+							 mat->getSpecularColor().b);
 	
+	oceanShader.setUniform1f("uSpecIntensity",
+							 mat->getShininess() );
+	
+	oceanShader.setUniform3f("uSunPos",
+							 lights["POINT LIGHT 1"]->light.getPosition().x,
+							 lights["POINT LIGHT 1"]->light.getPosition().y,
+							 lights["POINT LIGHT 1"]->light.getPosition().z);
+	
+	oceanShader.setUniform3f("uEyePos",
+							 getCameraRef().getPosition().x,
+							 getCameraRef().getPosition().y,
+							 getCameraRef().getPosition().z);
+							 
+							 
 	ofEnableBlendMode(OF_BLENDMODE_ADD);
 	ofSetColor(255, pointAlpha*255);
 	if(drawPoints) renderer.drawVertices();
@@ -139,7 +166,7 @@ void CloudsVisualSystemOcean::selfDraw(){
 	ofSetColor(255, oceanAlpha*255);
 	if(drawOcean) renderer.draw();
 	
-//	oceanShader.end();
+	oceanShader.end();
 	
 	glPopAttrib();
 	
@@ -161,7 +188,8 @@ void CloudsVisualSystemOcean::selfEnd(){
 }
 
 void CloudsVisualSystemOcean::selfKeyPressed(ofKeyEventArgs & args){
-	if(args.key == 'r'){
+
+	if(args.key == 'R'){
 		reloadShader();
 	}
 }
@@ -194,7 +222,6 @@ void CloudsVisualSystemOcean::selfGuiEvent(ofxUIEventArgs &e){
 	if(e.widget->getName() == "REGENERATE" && ((ofxUIButton*)e.widget)->getValue() ){
 		generateOcean();
 	}
-	
 }
 
 void CloudsVisualSystemOcean::selfSetupSystemGui(){
@@ -206,7 +233,7 @@ void CloudsVisualSystemOcean::guiSystemEvent(ofxUIEventArgs &e){
 }
 
 void CloudsVisualSystemOcean::reloadShader(){
-	
+	cout << "Reloading ocean shader" << endl;
 	oceanShader.load(getVisualSystemDataPath() + "shaders/ocean");
 }
 

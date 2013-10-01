@@ -1,6 +1,8 @@
 
 varying float fogFactor;
 const float LOG2 = 1.442695;
+varying vec3 varEyeNormal;
+varying vec3 normalColor;
 
 void main(void)
 {
@@ -20,6 +22,8 @@ void main(void)
 	//END FOG
 
 	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+	
+	varEyeNormal = normalize(gl_NormalMatrix * gl_Normal);
 	gl_FrontColor = gl_Color;
 }
 

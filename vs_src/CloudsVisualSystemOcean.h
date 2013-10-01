@@ -76,9 +76,10 @@ class CloudsVisualSystemOcean : public CloudsVisualSystem {
 	float windSpeed;
     float oceanTileSizeX;
     float oceanTileSizeY;
+
 	
-	float fogMinDepth;
-	float fogMaxDepth;
+//	float fogMinDepth;
+//	float fogMaxDepth;
 	float fogDensity;
 
 	float waveScale;
