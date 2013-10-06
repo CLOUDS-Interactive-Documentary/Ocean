@@ -1,19 +1,19 @@
 <Canvas>
     <Kind>42</Kind>
     <Name>OceanSettings</Name>
-    <IsMinified>1</IsMinified>
-    <XPosition>1.000000000</XPosition>
-    <YPosition>218.000000000</YPosition>
+    <IsMinified>0</IsMinified>
+    <XPosition>866.000000000</XPosition>
+    <YPosition>408.000000000</YPosition>
 </Canvas>
 <Widget>
     <Kind>4</Kind>
     <Name>OCEAN SIZE X</Name>
-    <Value>1000.000000000</Value>
+    <Value>444.039398193</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>OCEAN SIZE Y</Name>
-    <Value>161.181961060</Value>
+    <Value>434.285705566</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>

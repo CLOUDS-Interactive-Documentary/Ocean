@@ -15,7 +15,8 @@ class CloudsVisualSystemOcean : public CloudsVisualSystem {
 
 	void selfSetup();
 	void selfSetupGuis();
-
+	void selfPresetLoaded(string presetPath);
+	
 	void selfUpdate();
 	void selfDrawBackground();
 	void selfDrawDebug();
@@ -71,19 +72,25 @@ class CloudsVisualSystemOcean : public CloudsVisualSystem {
 	void generateOcean();
 	
 	ofxUISuperCanvas* oceanGui;
+	ofxUISuperCanvas* oceanCameraGui;
 	
 	//Generator variables
 	float windSpeed;
     float oceanTileSizeX;
     float oceanTileSizeY;
-
 	
-//	float fogMinDepth;
-//	float fogMaxDepth;
 	float fogDensity;
 
 	float waveScale;
 	float choppyScale;
 	float waveSpeed;
+
+	bool depthTesting;
+	float cameraSpeed;
+	float currentLookRot;
+	float currentSteerRot;
+	float maxLookUpRot;
+	float maxLookDownRot;
 	
+
 };
