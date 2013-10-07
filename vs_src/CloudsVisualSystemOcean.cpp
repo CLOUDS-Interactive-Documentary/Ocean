@@ -93,9 +93,6 @@ void CloudsVisualSystemOcean::selfSetupGuis(){
 	oceanCameraGui->addSlider("MAX LOOK UP ROT", 0, 90, &maxLookUpRot);
 	oceanCameraGui->addSlider("MAX LOOK DOWN ROT", 0, 90, &maxLookDownRot);
 	
-	float minLookUpRot;
-
-	
     guis.push_back(oceanCameraGui);
     guimap[oceanGui->getName()] = oceanCameraGui;
 
@@ -222,6 +219,7 @@ void CloudsVisualSystemOcean::selfDraw(){
 	if(depthTesting){
 		glEnable(GL_DEPTH_TEST);
 	}
+	
 	ofEnableBlendMode(OF_BLENDMODE_ADD);
 	ofSetColor(255, pointAlpha*255);
 	if(drawPoints) renderer.drawVertices();
