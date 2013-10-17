@@ -1,9 +1,9 @@
 <Canvas>
     <Kind>42</Kind>
     <Name>POINT LIGHT 1Settings</Name>
-    <IsMinified>1</IsMinified>
-    <XPosition>1.000000000</XPosition>
-    <YPosition>170.000000000</YPosition>
+    <IsMinified>0</IsMinified>
+    <XPosition>849.000122070</XPosition>
+    <YPosition>1.000000000</YPosition>
 </Canvas>
 <Widget>
     <Kind>2</Kind>
@@ -18,7 +18,7 @@
 <Widget>
     <Kind>25</Kind>
     <Name>Y</Name>
-    <Value>-204.191040039</Value>
+    <Value>-109.952148438</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
@@ -28,45 +28,45 @@
 <Widget>
     <Kind>25</Kind>
     <Name>AR</Name>
-    <Value>0.062826268</Value>
+    <Value>0.345547825</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
     <Name>AG</Name>
-    <Value>0.209422797</Value>
+    <Value>0.350783110</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
     <Name>AB</Name>
-    <Value>0.308899879</Value>
+    <Value>0.371725172</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
     <Name>DR</Name>
-    <Value>0.989527822</Value>
+    <Value>0.392668217</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
     <Name>DG</Name>
-    <Value>1.000000000</Value>
+    <Value>0.382196695</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
     <Name>DB</Name>
-    <Value>1.000000000</Value>
+    <Value>0.277484357</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
     <Name>SR</Name>
-    <Value>1.000000000</Value>
+    <Value>0.376961440</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
     <Name>SG</Name>
-    <Value>1.000000000</Value>
+    <Value>0.382196695</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
     <Name>SB</Name>
-    <Value>1.000000000</Value>
+    <Value>0.308897972</Value>
 </Widget>
