@@ -1,59 +1,54 @@
 <Canvas>
     <Kind>42</Kind>
-    <Name>POINT LIGHT 1Settings</Name>
-    <IsMinified>1</IsMinified>
-    <XPosition>1.000000000</XPosition>
-    <YPosition>170.000000000</YPosition>
+    <Name>MATERIAL 1Settings</Name>
+    <IsMinified>0</IsMinified>
+    <XPosition>213.000000000</XPosition>
+    <YPosition>1.000000000</YPosition>
 </Canvas>
-<Widget>
-    <Kind>2</Kind>
-    <Name>ENABLE</Name>
-    <Value>1</Value>
-</Widget>
-<Widget>
-    <Kind>25</Kind>
-    <Name>X</Name>
-    <Value>539.265014648</Value>
-</Widget>
-<Widget>
-    <Kind>25</Kind>
-    <Name>Y</Name>
-    <Value>-204.191040039</Value>
-</Widget>
-<Widget>
-    <Kind>25</Kind>
-    <Name>Z</Name>
-    <Value>371.726440430</Value>
-</Widget>
 <Widget>
     <Kind>25</Kind>
     <Name>AR</Name>
-    <Value>0.062826268</Value>
+    <Value>0.800000012</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
     <Name>AG</Name>
-    <Value>0.209422797</Value>
+    <Value>0.800000012</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
     <Name>AB</Name>
-    <Value>0.308899879</Value>
+    <Value>0.800000012</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
-    <Name>DR</Name>
-    <Value>0.989527822</Value>
+    <Name>AR</Name>
+    <Value>0.973821998</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
-    <Name>DG</Name>
-    <Value>1.000000000</Value>
+    <Name>AG</Name>
+    <Value>0.476439476</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
-    <Name>DB</Name>
-    <Value>1.000000000</Value>
+    <Name>AB</Name>
+    <Value>0.800000012</Value>
+</Widget>
+<Widget>
+    <Kind>25</Kind>
+    <Name>ER</Name>
+    <Value>0.062826507</Value>
+</Widget>
+<Widget>
+    <Kind>25</Kind>
+    <Name>EG</Name>
+    <Value>0.020941610</Value>
+</Widget>
+<Widget>
+    <Kind>25</Kind>
+    <Name>EB</Name>
+    <Value>0.246072650</Value>
 </Widget>
 <Widget>
     <Kind>25</Kind>
@@ -69,4 +64,9 @@
     <Kind>25</Kind>
     <Name>SB</Name>
     <Value>1.000000000</Value>
+</Widget>
+<Widget>
+    <Kind>25</Kind>
+    <Name>SHINY</Name>
+    <Value>31.527065277</Value>
 </Widget>
