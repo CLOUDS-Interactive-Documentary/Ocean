@@ -61,7 +61,10 @@ void CloudsVisualSystemOcean::selfSetupGuis(){
 	oceanGui->addSlider("WAVE SCALE", 0, 100.0, &ocean.waveScale);
 	oceanGui->addSlider("WAVE CHOPPINESS", 0, 20, &ocean.choppyScale);
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> bee196f48045c4d8433dfc77c22cbb6fdf1ecc1a
 	oceanGui->addLabel("RENDERING");
 	oceanGui->addToggle("DRAW POINTS", &drawPoints);
 	oceanGui->addSlider("POINT ALPHA", 0, 1.0, &pointAlpha);
@@ -200,7 +203,10 @@ void CloudsVisualSystemOcean::selfDraw(){
 		ofEnableBlendMode(OF_BLENDMODE_ADD);
 	}
 	
+<<<<<<< HEAD
 	
+=======
+>>>>>>> bee196f48045c4d8433dfc77c22cbb6fdf1ecc1a
 	ofSetColor(255, pointAlpha*255);
 	if(drawPoints) renderer.drawVertices();
 	
@@ -220,7 +226,10 @@ void CloudsVisualSystemOcean::selfDraw(){
 	
 	ofEnableAlphaBlending();
 	
+<<<<<<< HEAD
 	
+=======
+>>>>>>> bee196f48045c4d8433dfc77c22cbb6fdf1ecc1a
 }
 
 void CloudsVisualSystemOcean::selfExit(){
