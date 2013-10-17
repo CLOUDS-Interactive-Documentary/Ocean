@@ -175,7 +175,6 @@ void CloudsVisualSystemOcean::selfDraw(){
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 	
-	glDisable(GL_DEPTH_TEST);
 //	glPushAttrib(GL_ALL_ATTRIB_BITS);
 
 	glEnable(GL_FOG);
@@ -185,42 +184,23 @@ void CloudsVisualSystemOcean::selfDraw(){
 //	float FogCol[3]={0.8f,0.8f,0.8f}; // Define a nice light grey
 //	glFogfv(GL_FOG_COLOR, FogCol);     // Set the fog color
 	glFogf(GL_FOG_DENSITY, powf(fogDensity,2));
-	
-//	oceanShader.begin();
-//	oceanShader.setUniform3f("uAmbient",
-//							 mat->getAmbientColor().r,
-//							 mat->getAmbientColor().g,
-//							 mat->getAmbientColor().b);
-//							 
-//	oceanShader.setUniform3f("uDiffuse",
-//							 mat->getDiffuseColor().r,
-//							 mat->getDiffuseColor().g,
-//							 mat->getDiffuseColor().b);
-//	oceanShader.setUniform3f("uSpecular",
-//							 mat->getSpecularColor().r,
-//							 mat->getSpecularColor().g,
-//							 mat->getSpecularColor().b);
-//	
-//	oceanShader.setUniform1f("uSpecIntensity",
-//							 mat->getShininess() );
-//	
-//	oceanShader.setUniform3f("uSunPos",
-//							 lightDirection.x,
-//							 lightDirection.y,
-//							 lightDirection.z);
-//
-//	oceanShader.setUniform3f("uEyePos",
-//							 getCameraRef().getPosition().x,
-//							 getCameraRef().getPosition().y,
-//							 getCameraRef().getPosition().z);
-				
+
 	mat->begin();
 
 	if(depthTesting){
+		GLfloat fogColor[4] = {bgColor->r/255.,bgColor->g/255.,bgColor->b/255., 1.0 };
+		glFogfv (GL_FOG_COLOR, fogColor);
 		glEnable(GL_DEPTH_TEST);
+		ofEnableAlphaBlending();
+	}
+	else{
+		GLfloat fogColor[4] = {0.0, 0.0, 0.0, 1.0};
+		glFogfv (GL_FOG_COLOR, fogColor);
+		glDisable(GL_DEPTH_TEST);
+		ofEnableBlendMode(OF_BLENDMODE_ADD);
 	}
 	
-	ofEnableBlendMode(OF_BLENDMODE_ADD);
+	
 	ofSetColor(255, pointAlpha*255);
 	if(drawPoints) renderer.drawVertices();
 	
@@ -231,7 +211,6 @@ void CloudsVisualSystemOcean::selfDraw(){
 	ofSetColor(255, oceanAlpha*255);
 	if(drawOcean){
 		renderer.draw();
-
 	}
 	mat->end();
 	
