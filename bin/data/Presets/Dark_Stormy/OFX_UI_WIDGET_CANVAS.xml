@@ -2,8 +2,8 @@
     <Kind>42</Kind>
     <Name>OFX_UI_WIDGET_CANVAS</Name>
     <IsMinified>0</IsMinified>
-    <XPosition>1697.000000000</XPosition>
-    <YPosition>1.000000000</YPosition>
+    <XPosition>294.000000000</XPosition>
+    <YPosition>233.000000000</YPosition>
 </Canvas>
 <Widget>
     <Kind>2</Kind>
@@ -13,30 +13,30 @@
 <Widget>
     <Kind>4</Kind>
     <Name>BASE WIDTH</Name>
-    <Value>33.684726715</Value>
+    <Value>23.280788422</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>LIFT HEIGHT</Name>
-    <Value>12.807882309</Value>
+    <Value>8.374354362</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>SPEED</Name>
-    <Value>-0.123152405</Value>
+    <Value>-0.034482758</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>DAMPEN</Name>
-    <Value>0.743842363</Value>
+    <Value>0.527093589</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>MAX LOOK UP ROT</Name>
-    <Value>36.354679108</Value>
+    <Value>52.315269470</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>MAX LOOK DOWN ROT</Name>
-    <Value>36.798030853</Value>
+    <Value>52.315269470</Value>
 </Widget>

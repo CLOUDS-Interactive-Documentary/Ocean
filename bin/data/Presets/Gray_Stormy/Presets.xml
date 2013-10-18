@@ -1,9 +1,9 @@
 <Canvas>
     <Kind>42</Kind>
     <Name>Presets</Name>
-    <IsMinified>0</IsMinified>
-    <XPosition>1273.000000000</XPosition>
-    <YPosition>1.000000000</YPosition>
+    <IsMinified>1</IsMinified>
+    <XPosition>1.000000000</XPosition>
+    <YPosition>195.000000000</YPosition>
 </Canvas>
 <Widget>
     <Kind>2</Kind>
@@ -22,13 +22,8 @@
 </Widget>
 <Widget>
     <Kind>2</Kind>
-    <Name>Dark_Stormy</Name>
-    <Value>0</Value>
-</Widget>
-<Widget>
-    <Kind>2</Kind>
     <Name>DunesAtNight</Name>
-    <Value>1</Value>
+    <Value>0</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
@@ -38,11 +33,6 @@
 <Widget>
     <Kind>2</Kind>
     <Name>Glum</Name>
-    <Value>0</Value>
-</Widget>
-<Widget>
-    <Kind>2</Kind>
-    <Name>Gray_Stormy</Name>
     <Value>0</Value>
 </Widget>
 <Widget>
@@ -79,4 +69,14 @@
     <Kind>2</Kind>
     <Name>WireframeNightOcean</Name>
     <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>Dark_Stormy</Name>
+    <Value>0</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>Gray_Stormy</Name>
+    <Value>1</Value>
 </Widget>

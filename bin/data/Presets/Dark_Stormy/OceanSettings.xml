@@ -2,63 +2,63 @@
     <Kind>42</Kind>
     <Name>OceanSettings</Name>
     <IsMinified>0</IsMinified>
-    <XPosition>1485.000000000</XPosition>
-    <YPosition>1.000000000</YPosition>
+    <XPosition>524.000000000</XPosition>
+    <YPosition>10.000000000</YPosition>
 </Canvas>
 <Widget>
     <Kind>4</Kind>
     <Name>OCEAN SIZE X</Name>
-    <Value>239.211517334</Value>
+    <Value>351.379302979</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>OCEAN SIZE Y</Name>
-    <Value>234.334686279</Value>
+    <Value>346.502471924</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>WIND SPEED Y</Name>
-    <Value>252.728469849</Value>
+    <Value>100.325119019</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>WAVE SPEED</Name>
-    <Value>0.000000000</Value>
+    <Value>0.689655185</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>WAVE SCALE</Name>
-    <Value>14.018541336</Value>
+    <Value>42.364532471</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>WAVE CHOPPINESS</Name>
-    <Value>1.970437288</Value>
+    <Value>2.068959475</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
     <Name>DRAW POINTS</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>POINT ALPHA</Name>
-    <Value>0.059112698</Value>
+    <Value>0.586206913</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>POINT SIZE</Name>
-    <Value>0.775862098</Value>
+    <Value>1.206896544</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
     <Name>DRAW WIREFRAME</Name>
-    <Value>0</Value>
+    <Value>1</Value>
 </Widget>
 <Widget>
     <Kind>4</Kind>
     <Name>WIREFRAME ALPHA</Name>
-    <Value>0.000000000</Value>
+    <Value>0.251231521</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
@@ -68,7 +68,7 @@
 <Widget>
     <Kind>4</Kind>
     <Name>OCEAN ALPHA</Name>
-    <Value>1.000000000</Value>
+    <Value>0.339901477</Value>
 </Widget>
 <Widget>
     <Kind>2</Kind>
@@ -78,5 +78,5 @@
 <Widget>
     <Kind>4</Kind>
     <Name>FOG DENSITY</Name>
-    <Value>0.107881688</Value>
+    <Value>0.153694585</Value>
 </Widget>
