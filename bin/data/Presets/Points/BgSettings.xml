@@ -1,13 +1,18 @@
 <Canvas>
     <Kind>42</Kind>
     <Name>BgSettings</Name>
-    <IsMinified>0</IsMinified>
+    <IsMinified>1</IsMinified>
     <XPosition>1.000000000</XPosition>
-    <YPosition>144.000000000</YPosition>
+    <YPosition>72.000000000</YPosition>
 </Canvas>
 <Widget>
     <Kind>2</Kind>
     <Name>GRAD</Name>
+    <Value>1</Value>
+</Widget>
+<Widget>
+    <Kind>2</Kind>
+    <Name>BAR GRAD</Name>
     <Value>1</Value>
 </Widget>
 <Widget>
